@@ -1,3 +1,21 @@
+/* /Pages/WhackMe/WhackMe.razor.rz.scp.css */
+.board[b-c2jjywj47z]{
+    align-content: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    height: 600px;
+    width: 600px;
+    border: 1px solid black;
+}
+
+.main[b-c2jjywj47z]{
+    align-content:center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height: 100vh;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-p531rfodtv] {
     position: relative;
