@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Microsoft.AspNetCore.Components.dll": "sha256-1\/BdHGvurw4rr4ieNoSllQNqXM++cvIdUH0ewtDtmLY=",
+      "Microsoft.AspNetCore.Components.dll": "sha256-VSot\/KYSbsZx0JAB0IgAKYrKaKQ6yhBJE2D+TMxOd1I=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-lLeAAdXYR99eecPiAQOdsoHhleI8Ws+b2Jh\/3KOESAE=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-qLRev3iQ8+ob2712HwRtFUJchqBHMqm+gr9bbFz7t14=",
       "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-zhFtW4kE16TdrpPne9I1Cu9o0KYzrS50VE9MVSifJg4=",
@@ -21,7 +21,7 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-YColTWA58whC+8aBjv1O7HgsyYrbHTba601EkNDWAlo=",
       "Microsoft.JSInterop.dll": "sha256-qAkdW9lpOxuToI9wOq2Liu3mqceR2fdv+cVOAwBcNqU=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-\/t0kGPO3Nt2TXo3rZz7S7wLoXxNakPKcEBdbVyyFlWo=",
-      "Portfolio.dll": "sha256-UIdcNuYRyenq2e5HjC19sS12e9OVaJYecLIK8+O0FsI=",
+      "Portfolio.dll": "sha256-xpWCjW0tnoXkjlujgLWZtW4EvqbnmR3jJ9oHtRfY4X4=",
       "System.Collections.Concurrent.dll": "sha256-PxQU\/bvw3Wm25tTw1WDkUzo6f+vDjh8NqIInxaizvno=",
       "System.Collections.dll": "sha256-1N++sbnqT+yiOdZbzCKvkKe7SqaK\/i3csldgRomBgxs=",
       "System.ComponentModel.dll": "sha256-CK27ahubgvE8mKln8XEP1tjTrM9b4weQ0ubvJCAFcog=",
@@ -32,7 +32,7 @@
       "System.Private.Runtime.InteropServices.JavaScript.dll": "sha256-1rUOXmGVZkEU+u68GWJ\/MYsicglvO3XUIa9P2PBdT\/k=",
       "System.Private.Uri.dll": "sha256-tv\/baYu++5Zc1NNLZ8gZAKHXvULMnxfyIk+Ta57x7f0=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-xcBI0NGVGMHc1iW0gmfp5EKQjBFRBgrKZX87avYxWLk=",
-      "System.Runtime.dll": "sha256-vbc1a7K498g8oyqf+ZXjlYMDlgbS56T9vy7fSDHmnSk=",
+      "System.Runtime.dll": "sha256-YcWF6VNCNN5gXbl9U7jugL04FwSHDRgnk3kTXNTclPY=",
       "System.Text.Encodings.Web.dll": "sha256-2z5KXQcR\/SnjihWkOqWZiIIWLNtfcEjvhUJOZmAG6Rw=",
       "System.Text.Json.dll": "sha256-PRlBnrvq4NbLjriHIsVMV5B2dAM8tRUDBUUcJFEog5w="
     },
