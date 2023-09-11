@@ -1,0 +1,32 @@
+﻿.mole {
+    background-image: url('assets/images/me3.jpg');
+    background-size: cover;
+    animation: pop-in .3s ease-out forwards;
+}
+
+
+@keyframes pop-in{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.square {
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    background-color: #FFF;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.square:hover{
+    background-color: #eab9fa;
+}

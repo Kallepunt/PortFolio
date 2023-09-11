@@ -1,0 +1,18 @@
+﻿@using Portfolio.Pages.WhackMe.Game.Models;
+<div class="square @SquareModel.Style" @onmouseup="ValidateHit">
+
+</div>
+@code {
+
+	[Parameter]
+	public SquareModel SquareModel { get; set; }
+
+	[Parameter]
+	public EventCallback OnMouseUp { get; set; }
+
+
+	private void ValidateHit()
+	{
+		OnMouseUp.InvokeAsync(new EventArgs());
+	}
+}

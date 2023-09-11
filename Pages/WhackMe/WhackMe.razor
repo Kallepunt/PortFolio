@@ -1,21 +1,28 @@
 ﻿@page "/WhackMe"
 @using Portfolio.Pages.WhackMe.Game;
+@using Portfolio.Pages.WhackMe.Game.Components
+@using Portfolio.Pages.WhackMe.Game.Models;
 
 
 <div class="main">
 
-<h3>Whack Me</h3>
+	<h1>Smack me in the Head</h1>
 
 
-<div class="info-container">
-	<h2>Score: @Game.Score</h2>
-	<h2>Time remaining: @Game.CurrentTime</h2>
-	<h2>@Game.Message</h2>
-</div>
+	<div class="info-container">
+		<h2>Score: @Game.Score</h2>
+		<h2>Time remaining: @Game.CurrentTime</h2>
+		<h2>@Game.Message</h2>
+	</div>
 
-<div class="board">
+	<div class="board">
 
-</div>
+		@foreach (var square in Game.Squares)
+		{
+			<Square SquareModel="square" OnMouseUp="() => MouseUp(square)"/>
+		}
+
+	</div>
 
 </div>
 
@@ -23,8 +30,86 @@
 @code {
 
 	private GameInfo Game = new GameInfo();
+	PeriodicTimer GameLoopTimer;
+	PeriodicTimer GameTimeTimer;
 
 
 
 
+	private void MouseUp(SquareModel square)
+	{
+		if (Game.IsGameRunning)
+		{
+			if (square.Id == Game.HitPosition)
+			{
+				Game.Score++;
+
+			}
+		}
+	}
+
+	private Random random = new Random();
+	int? LastPosition = null;
+
+	private void SetNextAppearance()
+	{
+		foreach (var item in Game.Squares)
+		{
+			item.IsShown = false;
+		}
+
+		int randomPos;
+
+		do
+		{
+			randomPos = random.Next(0, 9);
+		} while (LastPosition == randomPos);
+
+		Game.Squares[randomPos].IsShown = true;
+		Game.HitPosition = randomPos;
+		LastPosition = randomPos;
+
+		StateHasChanged();
+
+	}
+
+
+	private async Task GameLoopAsync(PeriodicTimer timer)
+	{
+		while (Game.IsGameRunning)
+		{
+			SetNextAppearance();
+			await timer.WaitForNextTickAsync();
+		}
+	}
+
+	private async Task GaneTimeAsync(PeriodicTimer timer)
+	{
+		while (Game.IsGameRunning)
+		{
+			Game.CurrentTime--;
+			if (Game.CurrentTime == 0)
+			{
+				Game.Message = "Time is up!";
+				Game.IsGameRunning = false;
+
+			}
+			StateHasChanged();
+
+			await timer.WaitForNextTickAsync();
+		}
+	}
+
+	protected override void OnInitialized()
+	{
+		GameLoopTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(Game.GameSpeed));
+
+		_ = GameLoopAsync(GameLoopTimer);
+
+		GameTimeTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+
+		_ = GaneTimeAsync(GameTimeTimer);
+
+
+	}
 }
