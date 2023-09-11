@@ -1,21 +1,91 @@
+/* /Pages/WhackMe/Game/Components/Square.razor.rz.scp.css */
+.mole[b-pz2kie3vv6] {
+    background-image: url('assets/images/me3.jpg');
+    background-size: cover;
+    animation: pop-in-b-pz2kie3vv6 .3s ease-out forwards;
+}
+
+
+@keyframes pop-in-b-pz2kie3vv6{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.square[b-pz2kie3vv6] {
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    background-color: #FFF;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.square:hover[b-pz2kie3vv6]{
+    background-color: #eab9fa;
+}
 /* /Pages/WhackMe/WhackMe.razor.rz.scp.css */
-.board[b-c2jjywj47z]{
+
+h1[b-c2jjywj47z],h2[b-c2jjywj47z]{
+    color: white;
+    font-family: 'Fredoka', sans-serif
+}
+
+h1[b-c2jjywj47z] {
+    font-size: 3em;
+    margin: 20px auto;
+    text-shadow: 0 0 5px #f041f0,0 0 10px #f041f0,0 0 20px #f041f0;
+}
+
+
+.info-container[b-c2jjywj47z]{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.board[b-c2jjywj47z] {
     align-content: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    height: 600px;
-    width: 600px;
-    border: 1px solid black;
+    height: 620px;
+    width: 620px;
+   
+    border-radius: 20px;
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(228, 89, 168),rgb(97, 16, 129));
+}
+.board:hover[b-c2jjywj47z]{
+    animation: pulse-b-c2jjywj47z 1.5s infinite;
 }
 
-.main[b-c2jjywj47z]{
-    align-content:center;
+@keyframes pulse-b-c2jjywj47z{
+    0% {
+        box-shadow: 0 0 5px #f041f0
+    }
+    100% {
+        box-shadow: 0 0 20px #f041f0, 0 0 30px #f041f0, 0 0 40px #f041f0;
+    }
+
+}
+
+
+.main[b-c2jjywj47z] {
+    background-image: radial-gradient(circle at center center, rgba(33,33,33,0),rgb(33,33,33)),repeating-linear-gradient(135deg, rgb(33,33,33) 0px, rgb(33,33,33) 1px,transparent 1px, transparent 4px),repeating-linear-gradient(45deg, rgb(56,56,56) 0px, rgb(56,56,56) 5px,transparent 5px, transparent 6px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
+    align-content: center;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     min-height: 100vh;
 }
+
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-p531rfodtv] {
     position: relative;
