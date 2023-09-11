@@ -2,7 +2,8 @@
 {
 	public class Highscore
 	{
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-		public int Score = 0;
+		public int Score {  get; set; }	
     }
 }

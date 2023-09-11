@@ -2,7 +2,9 @@
 @using Portfolio.Pages.WhackMe.Game;
 @using Portfolio.Pages.WhackMe.Game.Components
 @using Portfolio.Pages.WhackMe.Game.Models;
+@using Portfolio.Pages.WhackMe.Game.Services;
 @inject NavigationManager nav
+@inject WhackMeHighScoreSerice hsService
 
 <div class="main container-fluid">
 
@@ -16,7 +18,7 @@
 
 
 	<div class="info-container">
-		<h2>Score: @Game.Score @if (!Game.IsGameRunning)
+		<h2>Score: @Game.Score @if (!Game.IsGameRunning && Game.Score > 0)
 			{
 				  <a class="score" data-fancybox data-src="#mh"> Sumbit Score</a>
 			}</h2>
@@ -112,9 +114,10 @@
 	private List<Highscore> Highscore = new();
 	private Highscore Score = new();
 
-	private void AddScore()
+	private async Task AddScore()
 	{
-		Highscore.Add(Score);
+		Score.Score = Game.Score;
+		await hsService.AddHighScore(Score);
 		nav.NavigateTo("WhackMe", true);
 	}
 
@@ -172,7 +175,7 @@
 			Game.CurrentTime--;
 			if (Game.CurrentTime == 0)
 			{
-				Score.Score = Game.Score;
+				
 				Game.Message = "Time is up!";
 				Game.IsGameRunning = false;
 
@@ -187,7 +190,8 @@
 	{
 		
 
-		Highscore = Highscore.OrderByDescending(x => x.Score).Take(5).ToList();
+		Highscore = await hsService.GetHighScoresAsync();
+		Highscore = Highscore.OrderByDescending(x => x.Score).Where(x => x.Score > 0).Take(10).ToList();
 
 		GameLoopTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(Game.GameSpeed));
 
@@ -197,7 +201,7 @@
 
 		_ = GaneTimeAsync(GameTimeTimer);
 
-
+		StateHasChanged();
 
 	}
 
