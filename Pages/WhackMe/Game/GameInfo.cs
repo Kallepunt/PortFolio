@@ -5,7 +5,7 @@ namespace Portfolio.Pages.WhackMe.Game
 	public class GameInfo
 	{
 		public int Score = 0;
-		public int CurrentTime = 20;
+		public int CurrentTime = 3;
 		public int HitPosition;
 		public string Message = string.Empty;
 		public int GameSpeed = 600;

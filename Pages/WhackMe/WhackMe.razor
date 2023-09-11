@@ -2,27 +2,103 @@
 @using Portfolio.Pages.WhackMe.Game;
 @using Portfolio.Pages.WhackMe.Game.Components
 @using Portfolio.Pages.WhackMe.Game.Models;
+@inject NavigationManager nav
 
+<div class="main container-fluid">
 
-<div class="main">
+	<div class="row text-center">
+		<div class="col-12 justify-content-center" style="margin-top: 50px;">
+			<h1>Smack me in the Head</h1>
 
-	<h1>Smack me in the Head</h1>
+		</div>
+	</div>
+
 
 
 	<div class="info-container">
-		<h2>Score: @Game.Score</h2>
+		<h2>Score: @Game.Score @if (!Game.IsGameRunning)
+			{
+				  <a class="score" data-fancybox data-src="#mh"> Sumbit Score</a>
+			}</h2>
 		<h2>Time remaining: @Game.CurrentTime</h2>
 		<h2>@Game.Message</h2>
 	</div>
 
-	<div class="board">
+	<div class="row">
 
-		@foreach (var square in Game.Squares)
-		{
-			<Square SquareModel="square" OnMouseUp="() => MouseUp(square)"/>
-		}
+		<div class="col-6">
+			<div class="highscore">
+
+				<div class="container">
+
+
+				@foreach (var item in Highscore)
+				{
+					
+					<div class="row">
+					<p>@item.Name  @item.Score points</p>
+					</div>
+				}
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-6">
+
+			<div class="board">
+
+				@foreach (var square in Game.Squares)
+				{
+					<Square SquareModel="square" OnMouseUp="() => MouseUp(square)" />
+				}
+
+			</div>
+		</div>
+
 
 	</div>
+		<div class="row">
+			<div class="col-12">
+			<button class="rs" @onclick="Restart">Restart</button>
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+		<div class="mh-portfolio-modal" id="mh">
+			<div class="container">
+				<div class="row mh-portfolio-modal-inner">
+					<div class="col-sm-12 text-center">
+					<h2>Thank you for playing my silly game!</h2>
+						<p>
+							You got @Game.Score points!
+						</p>
+
+						<input  placeholder="Name" @bind-value="@Score.Name" class="form-control text-white"/>
+
+					<a @onclick="AddScore" class="btn btn-fill text-white">Submit Score </a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+
 
 </div>
 
@@ -33,8 +109,14 @@
 	PeriodicTimer GameLoopTimer;
 	PeriodicTimer GameTimeTimer;
 
+	private List<Highscore> Highscore = new();
+	private Highscore Score = new();
 
-
+	private void AddScore()
+	{
+		Highscore.Add(Score);
+		nav.NavigateTo("WhackMe", true);
+	}
 
 	private void MouseUp(SquareModel square)
 	{
@@ -90,6 +172,7 @@
 			Game.CurrentTime--;
 			if (Game.CurrentTime == 0)
 			{
+				Score.Score = Game.Score;
 				Game.Message = "Time is up!";
 				Game.IsGameRunning = false;
 
@@ -100,8 +183,12 @@
 		}
 	}
 
-	protected override void OnInitialized()
+	protected override async Task OnInitializedAsync()
 	{
+		
+
+		Highscore = Highscore.OrderByDescending(x => x.Score).Take(5).ToList();
+
 		GameLoopTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(Game.GameSpeed));
 
 		_ = GameLoopAsync(GameLoopTimer);
@@ -111,5 +198,12 @@
 		_ = GaneTimeAsync(GameTimeTimer);
 
 
+
 	}
+
+	private void Restart()
+	{
+		nav.NavigateTo("WhackMe", true);
+	}
+
 }
