@@ -1,4 +1,5 @@
-﻿using Portfolio.Pages.WhackMe.Game.Models;
+﻿using System.Runtime.InteropServices;
+using Portfolio.Pages.WhackMe.Game.Models;
 using SqliteWasmHelper;
 
 namespace Portfolio.Pages.WhackMe.Game.Services
@@ -6,6 +7,7 @@ namespace Portfolio.Pages.WhackMe.Game.Services
 	public class WhackMeHighScoreSerice
 	{
 		private readonly ISqliteWasmDbContextFactory<HighScoreContext> _dbFactory;
+		private List<Highscore> Highscores = new();
 
 		public WhackMeHighScoreSerice(ISqliteWasmDbContextFactory<HighScoreContext> dbFactory)
 		{
@@ -16,9 +18,9 @@ namespace Portfolio.Pages.WhackMe.Game.Services
 		{
 			using var ctx = await _dbFactory.CreateDbContextAsync();
 
-			if (!ctx.Highscores.Any())
+			if (!Highscores.Any())
 			{
-				ctx.Highscores.Add(new Highscore()
+				Highscores.Add(new Highscore()
 				{
 				
 					Name = "Oskar",
@@ -26,7 +28,7 @@ namespace Portfolio.Pages.WhackMe.Game.Services
 				
 				}); ;
 
-				ctx.Highscores.Add(new Highscore()
+			    Highscores.Add(new Highscore()
 				{
 				
 					Name = "Chrille",
@@ -35,8 +37,8 @@ namespace Portfolio.Pages.WhackMe.Game.Services
 				}); ;
 			}
 
-			await ctx.SaveChangesAsync();
-			return ctx.Highscores.ToList();
+			//await ctx.SaveChangesAsync();
+			return Highscores.ToList();
 		}
 
 		public async Task AddHighScore(Highscore s)
@@ -51,7 +53,7 @@ namespace Portfolio.Pages.WhackMe.Game.Services
 			};
 
 
-			ctx.Highscores.Add(s);
+			Highscores.Add(s);
 			await ctx.SaveChangesAsync();
 
 		}
