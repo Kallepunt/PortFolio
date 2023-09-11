@@ -1,0 +1,17 @@
+﻿.board{
+    align-content: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    height: 600px;
+    width: 600px;
+    border: 1px solid black;
+}
+
+.main{
+    align-content:center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height: 100vh;
+}

@@ -1,11 +1,15 @@
-﻿<section class="mh-portfolio" id="mh-portfolio">
-            <div class="container">
+﻿@inject NavigationManager nav
+
+
+
+<section class="mh-portfolio" id="mh-portfolio">
+            <div class="container min-vh-100">
                 <div class="row section-separator">
                     <div class="section-title col-sm-12 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-                        <h3>Portfolio</h3>
+                <h3 style=" font-family: 'Permanent Marker';">Portfolio</h3>
                     </div>
                     <div class="part col-sm-12">
-                        <div class="portfolio-nav col-sm-12" id="filter-button">
+@*                         <div class="portfolio-nav col-sm-12" id="filter-button">
                             <ul>
                                 <li data-filter="*" class="current wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s"> <span>All Categories</span></li>
                                 <li data-filter=".user-interface" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"><span>Ui</span></li>
@@ -13,25 +17,29 @@
                                 <li data-filter=".mockup" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><span>Backend</span></li>
                                 <li data-filter=".ui" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><span>Fullstack</span></li>
                             </ul>
-                        </div>
+                        </div> *@
 
 
                        @* Hämta en lista med dina projekt och fixa filter *@
 
                         <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                            <div class="portfolioContainer row">
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
+                            <div class="portfolioContainer row" @onclick="NavigateToWhackMe">
+                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface" style="" >
+
                                     <figure>
                                         <img src="assets/images/portfolio/g1.jpg" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
+                                            <h5 class="title">Whack me</h5>
+                                            <span class="sub-title">A not so serious game :)</span>
                                             <a data-fancybox data-src="#mh"></a>
                                         </figcaption>
+
                                     </figure>
                                 </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui mockup">
+
+
+ @*                              <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui mockup">
                                     <figure>
                                         <img src="assets/images/portfolio/g2.png" alt="img04">
                                         <figcaption class="fig-caption">
@@ -118,12 +126,16 @@
                                             <a href="assets/images/portfolio/g7.jpg" data-fancybox="gallery"></a>
                                         </figcaption>
                                     </figure>
-                                </div>
+
+
+                                </div> *@
+
+
                             </div> <!-- End: .grid .project-gallery -->
                         </div> <!-- End: .grid .project-gallery -->
                     </div> <!-- End: .part -->
                 </div> <!-- End: .row -->
-            </div>
+            </div> 
 
 
 
@@ -179,3 +191,9 @@
 @* --> MODAL <-- *@
         </section>
 
+@code{
+    private void NavigateToWhackMe()
+    {
+        nav.NavigateTo("WhackMe");
+    }
+}

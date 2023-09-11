@@ -1,0 +1,29 @@
+﻿@page "/WhackMe"
+@using WhatMe;
+
+<div class="main">
+
+<h3>Whack Me</h3>
+
+
+<div class="info-container">
+	<h2>Score: @Game.Score</h2>
+	<h2>Time remaining: @Game.CurrentTime</h2>
+	<h2>@Game.Message</h2>
+</div>
+
+<div class="board">
+
+</div>
+
+</div>
+
+
+@code {
+
+	private GameInfo Game = new GameInfo();
+
+
+
+
+}
