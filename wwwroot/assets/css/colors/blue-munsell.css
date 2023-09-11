@@ -88,8 +88,8 @@
 .new .navbar-collapse {
   background-color: #2196F3; }
 
-.portfolio-nav ul li.current span {
-  border-bottom: 2px solid #2196F3; }
+/*.portfolio-nav ul li.current span {
+  border-bottom: 2px solid #2196F3; }*/
 
 .mh-project-gallery .grid-item figure:hover figcaption {
   background: rgba(33, 150, 243, 0.9); }

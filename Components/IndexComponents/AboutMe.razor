@@ -1,46 +1,64 @@
-﻿
- <section class="mh-about" id="mh-about">
-            <div class="container">
-                <div class="row section-separator">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="mh-about-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                            <img src="assets/images/ab-img.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="mh-about-inner">
-                            <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">About Me</h2>
-                            
-                            
-                            
-                            <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                Hello, I’m a Oskar, Fullstack-Developer based in Stockholm. 
-                            I have rich experience in web site design & building 
-                            and customization. Also I am good at</p>
+﻿@using System.Text;
+@inject IJSRuntime JSRuntime
+
+
+<section class="mh-about" id="mh-about">
+	<div class="container">
+		<div class="row section-separator">
+			<div class="col-sm-12 col-md-6">
+				<div class="mh-about-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
+					<img src="assets/images/ab-img.png" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-6">
+				<div class="mh-about-inner">
+					<h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">About Me</h2>
 
 
 
-                            <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                <ul>
-                                    <li><span>C#</span></li>
-                                    <li><span>ASP.NET Core</span></li>
-                                    <li><span>Entity Framework</span></li>
-                                    <li><span>Microsoft Identity</span></li>
-                                    <li><span>Html</span></li>
-                                    <li><span>Css</span></li>
-                                    <li><span>SQL</span></li>
-                                    <li><span>MongoDB</span></li>
-                                    <li><span>React</span></li>
-                                     <li><span>Angular</span></li>
-                                     <li><span>Blazor</span></li>
-                                     <li><span>REST</span></li>
+					<p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+						Hello, I’m a Oskar, Fullstack-Developer based in Stockholm.
+						I have rich experience in web site design & building
+						and customization. Also I am good at
+					</p>
 
-                                    <li><span>Javascript</span></li>
-                                </ul>
-                            </div>
-                            <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Downlaod CV <i class="fa fa-download"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+
+					<div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+						<ul>
+							<li><span>C#</span></li>
+							<li><span>ASP.NET Core</span></li>
+							<li><span>Docker</span></li>
+							<li><span>Entity Framework</span></li>
+							<li><span>Microsoft Identity</span></li>
+							<li><span>Html</span></li>
+							<li><span>Css</span></li>
+							<li><span>SQL</span></li>
+							<li><span>MongoDB</span></li>
+							<li><span>React</span></li>
+							<li><span>Angular</span></li>
+							<li><span>Blazor</span></li>
+							<li><span>REST</span></li>
+							<li><span>WPF</span></li>
+							<li><span>Xamarin</span></li>
+							<li><span>Maui</span></li>
+
+							<li><span>Javascript</span></li>
+						</ul>
+					</div>
+					<a @onclick="DownloadCV" href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Downlaod CV <i class="fa fa-download"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+@code {
+	private async Task DownloadCV()
+	{
+		string pdfFileName = "Oskar_Moquist_CV.pdf";
+		await JSRuntime.InvokeVoidAsync("downloadPdf", pdfFileName);
+	}
+}
+	
