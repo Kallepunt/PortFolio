@@ -1,3 +1,29 @@
+/* /Pages/ArStudio/Ar.razor.rz.scp.css */
+.main[b-2nhpnft01t] {
+   
+    align-content: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: repeating-linear-gradient(135deg, rgba(188,178,178, 0.04) 0px, rgba(188,178,178, 0.04) 2px,transparent 2px, transparent 4px),linear-gradient(45deg, rgb(245,220,244),rgb(226,233,243));
+}
+
+model-viewer[b-2nhpnft01t] {
+    height: 600px;
+    width: 95%;
+    background-image: repeating-linear-gradient(135deg, rgba(38,35,35, 0.26) 0px, rgba(38,35,35, 0.26) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(216,213,213),rgb(216,213,213));
+}
+
+.menu[b-2nhpnft01t]{
+    height: 1000px;
+    width: 400px;
+    border: 1px solid black;
+}
+
+.mt75[b-2nhpnft01t]{
+    margin-top: 75px;
+}
 /* /Pages/WhackMe/Game/Components/Square.razor.rz.scp.css */
 .mole[b-pz2kie3vv6] {
     background-image: url('assets/images/me3.jpg');
