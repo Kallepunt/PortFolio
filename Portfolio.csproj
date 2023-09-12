@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Pages\ArStudio\Components\" />
+    <Folder Include="wwwroot\assets\glb\" />
   </ItemGroup>
 
 </Project>
