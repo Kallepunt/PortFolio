@@ -41,9 +41,9 @@ function getglb(imageUrl, width, height) {
 
 
             // Configure renderer
-            const renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
+            //const renderer = new THREE.WebGLRenderer();
+            //renderer.setSize(window.innerWidth, window.innerHeight);
+            //document.body.appendChild(renderer.domElement);
 
             // Add lights to the scene (adjust lighting as needed)
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
