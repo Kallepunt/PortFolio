@@ -1,0 +1,25 @@
+﻿.main {
+   
+    align-content: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: repeating-linear-gradient(135deg, rgba(188,178,178, 0.04) 0px, rgba(188,178,178, 0.04) 2px,transparent 2px, transparent 4px),linear-gradient(45deg, rgb(245,220,244),rgb(226,233,243));
+}
+
+model-viewer {
+    height: 600px;
+    width: 95%;
+    background-image: repeating-linear-gradient(135deg, rgba(38,35,35, 0.26) 0px, rgba(38,35,35, 0.26) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(216,213,213),rgb(216,213,213));
+}
+
+.menu{
+    height: 1000px;
+    width: 400px;
+    border: 1px solid black;
+}
+
+.mt75{
+    margin-top: 75px;
+}

@@ -19,4 +19,8 @@
     <PackageReference Include="SqliteWasmHelper" Version="1.0.43-beta-g31b50d1f54" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\ArStudio\Components\" />
+  </ItemGroup>
+
 </Project>
