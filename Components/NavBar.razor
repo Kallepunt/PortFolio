@@ -1,39 +1,91 @@
 ﻿<header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav" style="z-index: 10; font-family: 'Permanent Marker';">
-            @* <div class="overlay"></div> *@
-            <div class="container">
-                <div class="row">
-                    <nav class="navbar navbar-expand-lg mh-nav nav-btn">
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto ml-auto">
+	@* <div class="overlay"></div> *@
+
+
+	<div class="container">
+		<div class="row">
+			<nav class="navbar navbar-expand-lg mh-nav nav-btn">
+				<button @onclick="ToiggeNav" style="background-color: pink;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+		
+				<div class="@navClass" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto ml-auto">
 
 
 
-                                <li class="nav-item active">
-                            <a style="font-family: 'Permanent Marker';" class="nav-link" href="">Home</a>
-                                </li>
+						<li class="nav-item active">
+							<a style="font-family: 'Permanent Marker';" class="nav-link" href="">Home</a>
+						</li>
 
 
-                                <li class="nav-item">
-                            <a style="font-family: 'Permanent Marker';" class="nav-link" href="About">About</a>
-                                </li>
-                             @*    <li class="nav-item">
-                            <a style="font-family: 'Permanent Marker';" class="nav-link" href="Skills">Skills</a>
-                                </li>                   *@              
-                                <li class="nav-item">
-                            <a style="font-family: 'Permanent Marker';" class="nav-link" href="Experiences">Experiences</a>
-                                </li>                                
-                                <li class="nav-item">
-                            <a style="font-family: 'Permanent Marker';" class="nav-link" href="Portfolio">Portfolio</a>
-                                </li>                               
+						<li class="nav-item">
+							<a style="font-family: 'Permanent Marker';" class="nav-link" href="About">About</a>
+						</li>
+						@*    <li class="nav-item">
+						<a style="font-family: 'Permanent Marker';" class="nav-link" href="Skills">Skills</a>
+						</li>                   *@
+						<li class="nav-item">
+							<a style="font-family: 'Permanent Marker';" class="nav-link" href="Experiences">Experiences</a>
+						</li>
+						<li class="nav-item">
+							<a style="font-family: 'Permanent Marker';" class="nav-link" href="Portfolio">Portfolio</a>
+						</li>
 
 
-                            </ul>
+					</ul>
+				</div>
+				
 
 
 
 
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </header>
+
+			</nav>
+		</div>
+	</div>
+	@if (toggleNav)
+	{
+
+
+		<ul class="mr-auto ml-auto" style="color: #e230ff; font-size: 20px;">
+
+
+
+			<li class="nav-item active">
+				<a style="font-family: 'Permanent Marker';" class="nav-link" href="" @onclick="ToiggeNav">Home</a>
+			</li>
+
+
+			<li class="nav-item">
+				<a style="font-family: 'Permanent Marker';" class="nav-link" href="About" @onclick="ToiggeNav">About </a>
+			</li>
+			@*    <li class="nav-item">
+		<a style="font-family: 'Permanent Marker';" class="nav-link" href="Skills">Skills</a>
+		</li>                   *@
+			<li class="nav-item">
+				<a style="font-family: 'Permanent Marker';" class="nav-link" href="Experiences" @onclick="ToiggeNav">Experiences</a>
+			</li>
+			<li class="nav-item">
+				<a style="font-family: 'Permanent Marker';" class="nav-link" href="Portfolio" @onclick="ToiggeNav">Portfolio</a>
+			</li>
+
+
+		</ul>
+	}
+</header>
+
+
+@code {
+
+	bool toggleNav;
+
+	string navClass = "collapse navbar-collapse";
+
+	void ToiggeNav()
+	{
+		toggleNav = !toggleNav;
+
+
+	}
+}
